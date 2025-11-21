@@ -1,8 +1,3 @@
-package com.gladiators.ranking;
-
-import com.gladiators.util.GerenciadorArquivos;
-import java.util.ArrayList;
-
 public class GerenciadorRanking {
     private ArrayList<Estatisticas> rankings;
     private GerenciadorArquivos gerenciadorArquivos;

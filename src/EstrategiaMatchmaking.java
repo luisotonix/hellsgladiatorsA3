@@ -1,29 +1,29 @@
 package com.gladiators.ia;
 
-import com.gladiators.modelo.ConfiguracaoClasse;
-
 public class EstrategiaMatchmaking {
     
     public static String getCounter(String classeJogador) {
+        ConfiguracaoClasse configClasse = new ConfiguracaoClasse();
+        
         // Sistema de counters
         switch (classeJogador) {
-            case ConfiguracaoClasse.RETIARIUS:
-                return ConfiguracaoClasse.SECUTOR; // Secutor > Retiarius
+            case configClasse.RETIARIUS:
+                return configClasse.SECUTOR; // Secutor > Retiarius
                 
-            case ConfiguracaoClasse.HOPLOMACHUS:
-                return ConfiguracaoClasse.MURMILLO; // Tanque > Glass Cannon
+            case configClasse.HOPLOMACHUS:
+                return configClasse.MURMILLO; // Tanque > Glass Cannon
                 
-            case ConfiguracaoClasse.MURMILLO:
-                return ConfiguracaoClasse.RETIARIUS; // Mobilidade > Lentidão
+            case configClasse.MURMILLO:
+                return configClasse.RETIARIUS; // Mobilidade > Lentidão
                 
-            case ConfiguracaoClasse.THRAEX:
-                return ConfiguracaoClasse.HOPLOMACHUS; // Burst > Versatilidade
+            case configClasse.THRAEX:
+                return configClasse.HOPLOMACHUS; // Burst > Versatilidade
                 
-            case ConfiguracaoClasse.SECUTOR:
-                return ConfiguracaoClasse.THRAEX; // Versátil > Especialista
+            case configClasse.SECUTOR:
+                return configClasse.THRAEX; // Versátil > Especialista
                 
             default:
-                return ConfiguracaoClasse.THRAEX; // Padrão
+                return configClasse.THRAEX; // Padrão
         }
     }
 }

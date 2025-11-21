@@ -56,38 +56,38 @@ private void  aplicarHabilidadeArma(Gladiador atacante, Gladiador defensor, Arma
 String habilidade = arma.getHabilidadeEspecial();
 
 switch(habilidade){
-    case "Duplo Ataque":
+    case "Duplo Ataque" -> {
         if(Aleatorio.chance(arma.getChanceHabilidade())){
             System.out.println(" DUPLO ATAQUE");
             // Segundo ataque será executado no próximo turno
         }
-        break;
+        }
 
-    case "Desarmar":
+    case "Desarmar" -> {
         if(Aleatorio.chance(arma.getChanceHabilidade())){
             defensor.getStatus().desarmar();
-            System.out.println(" DESARME! Oponente perde arma! ")
+            System.out.println(" DESARME! Oponente perde arma! ");
+                    }
         }
-        break;
 
-    case "Quebrar Armadura":
+    case "Quebrar Armadura" -> {
         defensor.getStatus().adicionarGolpeEscudo();
         if(defensor.getStatus().getGolpesNoEscudo() >= 2){
             defensor.quebrarArmadura();
             System.out.println(" ARMADURA DESTRUÍDA ");
         }
-        break;
+        }
 
-    case "Paralisar":
+    case "Paralisar" -> {
         defensor.getStatus().paralisar();
-        System.out.println(" PARALISADO! Perde o próximo turno")
-        break;    
+        System.out.println(" PARALISADO! Perde o próximo turno");
+                }    
 }
     //SANGRAMENTO DO THRAEX
-    if(atacante.getTipoClasse().equals(ConfiguracaoClasse.THRAEX)){
+    if(atacante.getTipoClasse().equals(ConfiguracaoClasse.Barbaro)){
        if(Aleatorio.chance(20)){
         defensor.getStatus().causarSangramento();
-        System.out.println(" SANGRAMENTO! 1 DANO POR 2 TURNOS !")
+        System.out.println(" SANGRAMENTO! 1 DANO POR 2 TURNOS !");
        } 
 
     }
