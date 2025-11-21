@@ -77,6 +77,10 @@ public class Gladiador {
         return status; 
     }
 
+    public boolean temArmadura() {
+        return (armadura > 0);
+    }
+
     public int getVelocidadeAtaque() {
         return velocidadeAtaque;
     } 
