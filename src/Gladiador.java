@@ -83,5 +83,7 @@ public class Gladiador {
 
     public int getVelocidadeAtaque() {
         return velocidadeAtaque;
-    } 
+    }
+
+   
 }

@@ -43,7 +43,7 @@ aplicarHabilidadeArma(atacante,defensor,arma);
 
 //6. APLICA ARMADURA(SE A ARMA NAO IGNORAR)
 int danoFinal = danoBase;
-if (!arma.ignoraArmadura() && defensor.temArmadura()){
+if (!arma.getIgnoraArmadura() && defensor.temArmadura()){
     danoFinal = danoBase - defensor.getReducaoDano();
     if (danoFinal < 0) danoFinal = 0;
 }
@@ -80,8 +80,8 @@ switch(habilidade){
 
     case "Paralisar" -> {
         defensor.getStatus().paralisar();
-        System.out.println(" PARALISADO! Perde o próximo turno");
-                }    
+        System.out.println(" PARALISADO! Perde o próximo turno")
+          
 }
     //SANGRAMENTO DO THRAEX
     if(atacante.getTipoClasse().equals(ConfiguracaoClasse.Barbaro)){
