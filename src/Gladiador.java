@@ -17,7 +17,7 @@ public class Gladiador {
     public void setGladiador(String nome, String tipoClasse, String nomeArma) {
         this.nome = nome;
         this.tipoClasse = tipoClasse;
-        arma.configurarArma(nomeArma);
+        this.arma = new Arma(nomeArma);
         this.status = new StatusBatalha();
         
         ConfiguracaoClasse config = new ConfiguracaoClasse();

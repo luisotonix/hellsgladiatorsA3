@@ -4,7 +4,8 @@ public class Oponente extends Gladiador {
     
     public Oponente getOponente() {Random random = new Random();
     int randomClasse = random.nextInt(5);
-    String tC, nA;
+    String tC = "";
+    String nA = "";
     switch (randomClasse) {
         case 0 -> {
             tC = "Tanque";
@@ -27,11 +28,12 @@ public class Oponente extends Gladiador {
             nA = "arco";
         }
     }
-    return oponente.setOponente(tC, nA);
+    setOponente(tC, nA);
+    return this;
 }
     public void setOponente(String tipoClasse, String nomeArma) {
         this.tipoClasse = tipoClasse;
-        arma.configurarArma(nomeArma);
+        this.arma = new Arma(nomeArma);
         this.status = new StatusBatalha();
         
         ConfiguracaoClasse config = new ConfiguracaoClasse();
