@@ -19,11 +19,11 @@ public class Arma{
 
     public Arma(String nome){
         this.nome = nome;
-        configurarArma();
+        configurarArma(nome);
 
     }
 
-    private void configurarArma(){
+    private void configurarArma(String nome){
         switch(nome.toLowerCase()){
 
             case espada -> {
@@ -87,4 +87,5 @@ public class Arma{
         return ignoraArmadura;
     }
 } 
+
 
