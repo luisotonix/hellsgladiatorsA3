@@ -5,7 +5,7 @@ public class SistemaCombate {
     private Gladiador oponente;
     private CalculadorDano calculador;
     private GerenciadorTurnos gerenciadorTurnos;
-    private Plateia plateia;
+    private Plateia plateia;                    
     
     public SistemaCombate(Gladiador jogador, Gladiador oponente) {
         this.jogador = jogador;

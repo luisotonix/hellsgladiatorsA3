@@ -1,58 +1,61 @@
-public class CalculadorDano{
+public class CalculadorDano {
 
-private static final int CHANCE_CRITICO = 15;
+    private static final int CHANCE_CRITICO = 15;
 
-public int calcularDano(Gladiador atacante, Gladiador defensor){
-    Arma arma = atacante.getArma();
-    int danoBase = arma. getForcaBase();
+    public int calcularDano(Gladiador atacante, Gladiador defensor) {
+        Arma arma = atacante.getArma();
+        int danoBase = arma.getForcaBase();
 
-    //1. Verificar crítico
+        // 1. Verificar crítico
 
-    boolean critico = false;
+        boolean critico = false;
 
-    if(atacante.getCritico() > 0 && Aleatorio.chance(CHANCE_CRITICO)){
-    danoBase *= 2;
-    critico = true;
-    System.out.println(" CRÍTICO! ");
-    
-}
+        if (atacante.getCritico() > 0 && Aleatorio.chance(CHANCE_CRITICO)) {
+            danoBase *= 2;
+            critico = true;
+            System.out.println(" CRÍTICO! ");
 
-// 2 BONÛS DO HOPLOMACHUS DO PRIMEIRO ATAQUE
+        }
 
-if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Arqueiro) && atacante.getStatus().isPrimeiroAtaque()){
-danoBase *= 2;// Primeiro golpe sempre crítico
-atacante.getStatus().usouPrimeiroAtaque();
-System.out.println(" PRIMEIRO DISPARO FOI PERFEITO! ");
+        // 2 BONÛS DO HOPLOMACHUS DO PRIMEIRO ATAQUE
 
-}
+        if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Arqueiro) && atacante.getStatus().isPrimeiroAtaque()) {
+            danoBase *= 2;// Primeiro golpe sempre crítico
+            atacante.getStatus().usouPrimeiroAtaque();
+            System.out.println(" PRIMEIRO DISPARO FOI PERFEITO! ");
 
-// 3.BONUS DO SECUTOR CONTRA RETIARIUS
-if(atacante.getTipoClasse().equals(ConfiguracaoClasse.Lanceiro) && defensor.getTipoClasse().equals(ConfiguracaoClasse.Assassino)){
-    danoBase +=2;
-System.out.println(" COUNTER! +2 DE DANO ");
-}
+        }
 
-//4. PENALIDADE DO SECUTOR CONTRA OUTRAS CLASSES
+        // 3.BONUS DO SECUTOR CONTRA RETIARIUS
+        if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Lanceiro)
+                && defensor.getTipoClasse().equals(ConfiguracaoClasse.Assassino)) {
+            danoBase += 2;
+            System.out.println(" COUNTER! +2 DE DANO ");
+        }
 
-if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Lanceiro) && !defensor.getTipoClasse().equals(ConfiguracaoClasse.Assassino)){
-danoBase -=1;
-}
+        // 4. PENALIDADE DO SECUTOR CONTRA OUTRAS CLASSES
 
-//5. APLICA HABILIDADES ESPECIAIS DA ARMA
-aplicarHabilidadeArma(atacante,defensor,arma);
+        if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Lanceiro)
+                && !defensor.getTipoClasse().equals(ConfiguracaoClasse.Assassino)) {
+            danoBase -= 1;
+        }
 
-//6. APLICA ARMADURA(SE A ARMA NAO IGNORAR)
-int danoFinal = danoBase;
-if (!arma.getIgnoraArmadura() && defensor.temArmadura()){
-    danoFinal = danoBase - defensor.getReducaoDano();
-    if (danoFinal < 0) danoFinal = 0;
-}
+        // 5. APLICA HABILIDADES ESPECIAIS DA ARMA
+        aplicarHabilidadeArma(atacante, defensor, arma);
 
-return danoFinal;
+        // 6. APLICA ARMADURA(SE A ARMA NAO IGNORAR)
+        int danoFinal = danoBase;
+        if (!arma.getIgnoraArmadura() && defensor.temArmadura()) {
+            danoFinal = danoBase - defensor.getReducaoDano();
+            if (danoFinal < 0)
+                danoFinal = 0;
+        }
 
-}
+        return danoFinal;
 
-private void  aplicarHabilidadeArma(Gladiador atacante, Gladiador defensor, Arma arma){
+    }
+
+public void  aplicarHabilidadeArma(Gladiador atacante, Gladiador defensor, Arma arma){
 String habilidade = arma.getHabilidadeEspecial();
 
 switch(habilidade){
@@ -78,10 +81,10 @@ switch(habilidade){
         }
         }
 
-    case "Paralisar" -> {
+    case "Paralisar" ->  {
         defensor.getStatus().paralisar();
-        System.out.println(" PARALISADO! Perde o próximo turno")
-          
+        System.out.println(" PARALISADO! Perde o próximo turno");
+    }
 }
     //SANGRAMENTO DO THRAEX
     if(atacante.getTipoClasse().equals(ConfiguracaoClasse.Barbaro)){
@@ -95,32 +98,3 @@ switch(habilidade){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
