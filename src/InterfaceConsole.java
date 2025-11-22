@@ -40,6 +40,7 @@ public class InterfaceConsole {
         while (continueLoop) {
             System.out.println("Digite o número correspondente à classe que deseja escolher:");
             int escolha = scanner.nextInt();
+            scanner.nextLine(); // Consumir a nova linha
             switch (escolha) {
                 case 1 -> {
                     System.out.println("Você escolheu a classe Tanque!");
@@ -79,10 +80,44 @@ public class InterfaceConsole {
                 default -> System.out.println("Escolha inválida. Por favor, selecione uma classe válida.");
             }
         }
-        oponente.getOponente();
-        arena.iniciarBatalha(gladiador, oponente);
+        // CRIAR OPONENTE ALEATÓRIO E INICIAR PARTIDAS EM LOOP
+        boolean repetirPartida = true;
+        while (repetirPartida) {
+            oponente = new Oponente();
+            oponente = oponente.getOponente(); // atribui oponente sorteado
 
-        scanner.close();
+            System.out.println("\nSeu oponente: " + oponente.getNome() + " (" + oponente.getTipoClasse() + ")");
+            System.out.println("HP: " + oponente.getHp());
+
+            // criar arena nova para cada partida
+            Arena arenaPartida = new Arena();
+            arenaPartida.iniciarBatalha(gladiador, oponente);
+
+            // Pergunta ao usuário se quer jogar outra partida
+            System.out.println("\nDeseja iniciar outra partida com o mesmo gladiador?");
+            System.out.println("1 - Sim");
+            System.out.println("2 - Não (voltar ao menu)");
+            int opc = 0;
+            while (true) {
+                if (scanner.hasNextInt()) {
+                    opc = scanner.nextInt();
+                    scanner.nextLine(); // consumir newline
+                    if (opc == 1 || opc == 2) break;
+                } else {
+                    scanner.nextLine(); // descartar entrada inválida
+                }
+                System.out.println("Entrada inválida. Digite 1 para Sim ou 2 para Não:");
+            }
+
+            if (opc == 1) {
+                // restaurar o gladiador para a próxima batalha (reinicia HP e status)
+                gladiador.setGladiador(gladiador.getNome(), gladiador.getTipoClasse(), gladiador.getArma().getNome());
+                repetirPartida = true;
+            } else {
+                repetirPartida = false;
+            }
+        }
+        // não fechar scanner aqui (System.in usado pelo menu principal)
     }
 
     public void mostrarRegras() {

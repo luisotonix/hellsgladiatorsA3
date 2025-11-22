@@ -23,7 +23,7 @@ public class Arena{
 
         combate = new SistemaCombate(jogador,oponente);
         combate.iniciarCombate();
-1
+
     }
 
 }

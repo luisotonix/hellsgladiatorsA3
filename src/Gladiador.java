@@ -33,18 +33,21 @@ public class Gladiador {
         velocidadeAtaque = config[4];
     }
     
-    public void receberDano(int dano) {
-        int danoFinal = dano - reducaoDano;
-        if (danoFinal < 0) danoFinal = 0;
-        
-        hp -= danoFinal;
-        if (hp < 0) hp = 0;
-    }
+public void receberDano(int dano) {
+    // Armadura já foi aplicada em CalculadorDano.calcularDano()
+    hp -= dano;  // 👈 Apenas subtrai o dano já calculado
+    if (hp < 0) hp = 0;
+}
     
     public boolean estaVivo() {
         return hp > 0;
     }
     
+    public void restaurarParaNovaBatalha() {
+        this.hp = this.hpMaximo;
+        this.status = new StatusBatalha();
+    }
+
     // Getters e Setters
     public String getNome() { 
         return nome; 

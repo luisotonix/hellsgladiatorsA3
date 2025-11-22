@@ -7,7 +7,7 @@ public class Plateia {
     }
     
     public void reagir () {
-        System.out.println("\\n=== REAÇÃO DA PLATEIA ===");
+        System.out.println("\n=== REAÇÃO DA PLATEIA ===");
         
         if (nivelAnimacao >= 80) {
             System.out.println("🎉 A MULTIDÃO ESTÁ EUFÓRICA! 🎉");

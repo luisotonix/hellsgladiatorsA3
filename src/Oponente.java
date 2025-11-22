@@ -29,6 +29,7 @@ public class Oponente extends Gladiador {
         }
     }
     setOponente(tC, nA);
+    this.nome = "Gladiador " + tC;
     return this;
 }
     public void setOponente(String tipoClasse, String nomeArma) {

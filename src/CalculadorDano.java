@@ -6,6 +6,10 @@ public class CalculadorDano {
         Arma arma = atacante.getArma();
         int danoBase = arma.getForcaBase();
 
+        // REMOVER DEBUG antes de release
+        // System.out.println("DEBUG: atacante=" + atacante.getNome() + " arma=" + arma.getNome() + " forcaBase=" + danoBase + " ignoraArmadura=" + arma.getIgnoraArmadura());
+        // System.out.println("DEBUG: defensor=" + defensor.getNome() + " temArmadura=" + defensor.temArmadura() + " reducao=" + defensor.getReducaoDano());
+
         // 1. Verificar crítico
 
         boolean critico = false;
@@ -51,12 +55,18 @@ public class CalculadorDano {
                 danoFinal = 0;
         }
 
+        // após calcular danoFinal, adicione:
+        // System.out.println("DEBUG: danoBase=" + danoBase + " danoFinal=" + danoFinal); // remover
         return danoFinal;
 
     }
 
 public void  aplicarHabilidadeArma(Gladiador atacante, Gladiador defensor, Arma arma){
 String habilidade = arma.getHabilidadeEspecial();
+
+   if (habilidade == null) {
+        return; // Sai do método se não tiver habilidade
+    }
 
     switch(habilidade){
     case "Duplo Ataque" -> {
