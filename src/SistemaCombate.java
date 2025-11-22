@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class SistemaCombate {
     private Gladiador jogador;
@@ -28,6 +28,18 @@ public class SistemaCombate {
     
     private void executarTurno() {
         gerenciadorTurnos.proximoTurno();
+        
+        System.out.println("\n--- TURNO " + gerenciadorTurnos.getTurnoAtual() + " ---");
+        System.out.println(jogador.getNome() + " HP: " + jogador.getHp());
+        System.out.println(oponente.getNome() + " HP: " + oponente.getHp());
+        
+        // Seu turno
+        if (!jogador.getStatus().isParalizado()) {
+            System.out.println("\n1 - Atacar\n2 - Defender\n3 - Esquivar");
+            Scanner scanner = new Scanner(System.in);
+            int escolha = scanner.nextInt();
+            // Processar escolha
+        }
         
         // Atualiza status (paralisia, sangramento)
         jogador.getStatus().atualizarStatus();

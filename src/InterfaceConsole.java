@@ -88,10 +88,10 @@ public class InterfaceConsole {
     public void mostrarRegras() {
         System.out.println("Cada classe tem seu HP máximo, arma e habilidade especial. Depois de escolher sua classe, seu gladiador será jogado no Coliseu para lutar contra outros gladiadores e sobreviver eventos especiais...\nCada turno você poderá escolher entre certas ações e o último gladiador com HP é o vencedor!");
     }
-
-    public void mostrarEstatisticas() {
-
-    }
+public void mostrarEstatisticas() {
+    GerenciadorRanking ranking = new GerenciadorRanking();
+    ranking.exibirTop10();
+}
 
 
 }
