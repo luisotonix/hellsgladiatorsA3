@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class GerenciadorRanking {
     private ArrayList<Estatisticas> rankings;
     private GerenciadorArquivos gerenciadorArquivos;
@@ -41,7 +43,7 @@ public class GerenciadorRanking {
     }
     
     public void exibirTop10() {
-        System.out.println("\\n╔════════════════════════════════╗");
+        System.out.println("\n╔════════════════════════════════╗");
         System.out.println("║       🏆 RANKING 🏆            ║");
         System.out.println("╚════════════════════════════════╝");
         

@@ -86,6 +86,6 @@ public class Gladiador {
     }
 
    public int quebrarArmadura () {
-    return (armadura = 0)
+    return (armadura = 0);
    }
 }
