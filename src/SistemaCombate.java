@@ -12,6 +12,7 @@ public class SistemaCombate {
         this.oponente = oponente;
         this.calculador = new CalculadorDano();
         this.gerenciadorTurnos = new GerenciadorTurnos();
+        this.plateia = new Plateia();
     }
     
     public void iniciarCombate() {

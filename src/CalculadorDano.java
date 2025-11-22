@@ -58,7 +58,7 @@ public class CalculadorDano {
 public void  aplicarHabilidadeArma(Gladiador atacante, Gladiador defensor, Arma arma){
 String habilidade = arma.getHabilidadeEspecial();
 
-switch(habilidade){
+    switch(habilidade){
     case "Duplo Ataque" -> {
         if(Aleatorio.chance(arma.getChanceHabilidade())){
             System.out.println(" DUPLO ATAQUE");

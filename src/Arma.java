@@ -62,6 +62,10 @@ public class Arma{
             }    
 
         default -> {
+            this.forcaBase = 1;
+            this.habilidadeEspecial = ""; // ou "Nenhuma"
+            this.chanceHabilidade = 0;
+            this.ignoraArmadura = false;
             }  
             }  
     }
