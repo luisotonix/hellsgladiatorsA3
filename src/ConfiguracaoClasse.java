@@ -33,10 +33,10 @@ public class ConfiguracaoClasse {
                 return new int[]{10, 5, 3, 0, 0};
 
             case ASSASSINO:
-                return new int[]{7, 2, 0, 5, 2};
+                return new int[]{7, 3, 0, 5, 2};
 
             case BARBARO:
-                return new int[]{9, 3, 2, 2, 1};
+                return new int[]{9, 4, 2, 2, 1};
 
             case LANCEIRO:
                 return new int[]{9, 4, 1, 2, 1};

@@ -28,7 +28,7 @@ public class Arma{
         switch(key){
 
             case "espada" -> {
-                this.forcaBase = 3;
+                this.forcaBase = 4;
                 this.habilidadeEspecial = "Duplo Ataque";
                 this.chanceHabilidade = 20;
                 this.ignoraArmadura = false;
@@ -46,9 +46,9 @@ public class Arma{
                 this.ignoraArmadura = false;
             }
             case "rede_adaga", "rede e adaga" -> {
-                this.forcaBase = 2;
+                this.forcaBase = 3;
                 this.habilidadeEspecial = "Paralisar";
-                this.chanceHabilidade = 100;
+                this.chanceHabilidade = 50;
                 this.ignoraArmadura = false;
             }
             case "arco", "arco e flecha" -> {
