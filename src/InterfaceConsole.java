@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class InterfaceConsole {
     public void mostrarMenuPrincipal() throws InterruptedException {
-        System.out.println("Hell's Gladiators");
+        System.out.println("\nHell's Gladiators\n");
         System.out.print("Carregando");
         Thread.sleep(500);
         System.out.print(".");
@@ -32,11 +32,11 @@ public class InterfaceConsole {
         Oponente oponente = new Oponente();
         
         System.out.println("Classes disponíveis para escolha:");
-        System.out.println("1 - Tanque\nHP: 10\nArma: Machado (Força: 5)\nBônus: Armadura reduz 3 de dano, chance de quebrar armadura do oponente após 2 ataques\nPenalidade: Ataca sempre por último\n\n");
-        System.out.println("2 - Assassino\nHP: 7\nArma: Rede e Adaga (Força: 2)\nBônus: Rede paralisa o oponente\nPenalidade: Não tem armadura\n\n");
-        System.out.println("3 - Bárbaro\nHP: 9\nArma: Espada (Força: 3)\nBônus: Armadura reduz 2 de dano, chance de fazer o oponente sangrar (+1 de dano por 2 turnos)\nPenalidade: \n\n");
-        System.out.println("4 - Lanceiro\nHP: 9\n Arma: Lança (Força: 4)\nBônus: Armadura reduz 1 de dano, chance de desarmar oponente\nPenalidade: \n\n");
-        System.out.println("5 - Arqueiro\nHP: 8\nArma: Arco e flecha (Força: 2)\nBônus: Arco ignora armadura, oponente precisa estar perto para atacar\nPenalidade: \n");
+        System.out.println("1 - Tanque\nHP: 10\nArma: Machado (Força: 5)\nBônus: Armadura reduz 3 de dano, chance de quebrar armadura do oponente após 2 ataques\n\n");
+        System.out.println("2 - Assassino\nHP: 7\nArma: Rede e Adaga (Força: 2)\nBônus: Rede paralisa o oponente\n\n");
+        System.out.println("3 - Bárbaro\nHP: 9\nArma: Espada (Força: 3)\nBônus: Armadura reduz 2 de dano, chance de fazer o oponente sangrar (+1 de dano por 2 turnos)\n\n");
+        System.out.println("4 - Lanceiro\nHP: 9\n Arma: Lança (Força: 4)\nBônus: Armadura reduz 1 de dano, chance de desarmar oponente\n\n");
+        System.out.println("5 - Arqueiro\nHP: 8\nArma: Arco e flecha (Força: 2)\nBônus: Arco ignora armadura, oponente precisa estar perto para atacar\n\n");
         while (continueLoop) {
             System.out.println("Digite o número correspondente à classe que deseja escolher:");
             int escolha = scanner.nextInt();
@@ -94,34 +94,42 @@ public class InterfaceConsole {
             arenaPartida.iniciarBatalha(gladiador, oponente);
 
             // Pergunta ao usuário se quer jogar outra partida
-            System.out.println("\nDeseja iniciar outra partida com o mesmo gladiador?");
+            System.out.println("\nDeseja seguir para a próxima partida?");
             System.out.println("1 - Sim");
-            System.out.println("2 - Não (voltar ao menu)");
+            System.out.println("2 - Não (escolher outra classe)");
+            System.out.println("3 - Não (voltar ao menu)");
             int opc = 0;
             while (true) {
                 if (scanner.hasNextInt()) {
                     opc = scanner.nextInt();
                     scanner.nextLine(); // consumir newline
-                    if (opc == 1 || opc == 2) break;
+                    if (opc == 1 || opc == 2 || opc == 3) break;
                 } else {
                     scanner.nextLine(); // descartar entrada inválida
                 }
-                System.out.println("Entrada inválida. Digite 1 para Sim ou 2 para Não:");
+                System.out.println("Entrada inválida. Tente novamente: ");
             }
 
-            if (opc == 1) {
-                // restaurar o gladiador para a próxima batalha (reinicia HP e status)
-                gladiador.setGladiador(gladiador.getNome(), gladiador.getTipoClasse(), gladiador.getArma().getNome());
-                repetirPartida = true;
-            } else {
-                repetirPartida = false;
+            switch (opc) {
+                case 1:
+                    // restaurar o gladiador para a próxima batalha (reinicia HP e status)
+                    gladiador.setGladiador(gladiador.getNome(), gladiador.getTipoClasse(), gladiador.getArma().getNome());
+                    repetirPartida = true;
+                    break;
+                case 2:
+                    iniciarJogo();
+                    break;
+                default:
+                    repetirPartida = false;
+                    break;
             }
         }
         // não fechar scanner aqui (System.in usado pelo menu principal)
     }
 
-    public void mostrarRegras() {
+    public void mostrarRegras() throws InterruptedException {
         System.out.println("Cada classe tem seu HP máximo, arma e habilidade especial. Depois de escolher sua classe, seu gladiador será jogado no Coliseu para lutar contra outros gladiadores e sobreviver eventos especiais...\nCada turno você poderá escolher entre certas ações e o último gladiador com HP é o vencedor!");
+        Thread.sleep(1000);
     }
 public void mostrarEstatisticas() {
     GerenciadorRanking ranking = new GerenciadorRanking();

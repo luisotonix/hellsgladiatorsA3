@@ -21,26 +21,26 @@ public class CalculadorDano {
 
         }
 
-        // 2 BONÛS DO HOPLOMACHUS DO PRIMEIRO ATAQUE
+        // 2 BONÛS DO ARQUEIRO DO PRIMEIRO ATAQUE
 
-        if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Arqueiro) && atacante.getStatus().isPrimeiroAtaque()) {
+        if (atacante.getTipoClasse().equals("arqueiro") && atacante.getStatus().isPrimeiroAtaque()) {
             danoBase *= 2;// Primeiro golpe sempre crítico
             atacante.getStatus().usouPrimeiroAtaque();
             System.out.println(" PRIMEIRO DISPARO FOI PERFEITO! ");
 
         }
 
-        // 3.BONUS DO SECUTOR CONTRA RETIARIUS
-        if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Lanceiro)
-                && defensor.getTipoClasse().equals(ConfiguracaoClasse.Assassino)) {
+        // 3.BONUS DO LANCEIRO CONTRA ASSASSINO
+        if (atacante.getTipoClasse().equals("lanceiro")
+                && defensor.getTipoClasse().equals("assassino")) {
             danoBase += 2;
             System.out.println(" COUNTER! +2 DE DANO ");
         }
 
-        // 4. PENALIDADE DO SECUTOR CONTRA OUTRAS CLASSES
+        // 4. PENALIDADE DO LANCEIRO CONTRA OUTRAS CLASSES
 
-        if (atacante.getTipoClasse().equals(ConfiguracaoClasse.Lanceiro)
-                && !defensor.getTipoClasse().equals(ConfiguracaoClasse.Assassino)) {
+        if (atacante.getTipoClasse().equals("lanceiro")
+                && !defensor.getTipoClasse().equals("assassino")) {
             danoBase -= 1;
         }
 
@@ -97,7 +97,7 @@ String habilidade = arma.getHabilidadeEspecial();
     }
 }
     //SANGRAMENTO DO THRAEX
-    if(atacante.getTipoClasse().equals(ConfiguracaoClasse.Barbaro)){
+    if(atacante.getTipoClasse().equals("barbaro")){
        if(Aleatorio.chance(20)){
         defensor.getStatus().causarSangramento();
         System.out.println(" SANGRAMENTO! 1 DANO POR 2 TURNOS !");

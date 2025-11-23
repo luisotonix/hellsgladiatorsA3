@@ -1,6 +1,6 @@
 public class GerenciadorTurnos {
 
-    private int turnoAtual = 1;
+    private int turnoAtual = 0;
 
     public void proximoTurno() {
         turnoAtual++;

@@ -43,8 +43,8 @@ public class GerenciadorRanking {
     }
     
     public void exibirTop10() {
-        System.out.println("\n╔════════════════════════════════╗");
-        System.out.println("║       🏆 RANKING 🏆            ║");
+        System.out.println("╔════════════════════════════════╗");
+        System.out.println("║         🏆 RANKING 🏆         ║");
         System.out.println("╚════════════════════════════════╝");
         
         // Ordena por vitórias (simples bubble sort)
