@@ -12,7 +12,6 @@ public class Main {
             switch (opcao) {
                 case 1 -> ui.iniciarJogo();
                 case 2 -> ui.mostrarRegras();
-                case 3 -> ui.mostrarEstatisticas();
                 default -> {
                     break OUTER;
                 }
@@ -23,3 +22,4 @@ public class Main {
         
     }
 }
+
