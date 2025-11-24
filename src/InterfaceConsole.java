@@ -23,7 +23,7 @@ public class InterfaceConsole {
     }
 
     @SuppressWarnings("ConvertToTryWithResources")
-    public void iniciarJogo() {
+    public void iniciarJogo() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         boolean continueLoop = true;
         String nome;
@@ -119,11 +119,15 @@ public class InterfaceConsole {
                 case 2:
                     iniciarJogo();
                     break;
+                case 3:
+                    mostrarMenuPrincipal();
+                    break;
                 default:
                     repetirPartida = false;
                     break;
             }
         }
+
         // não fechar scanner aqui (System.in usado pelo menu principal)
     }
 

@@ -3,7 +3,7 @@ public class Arena{
     private SistemaCombate combate;
     private EventoAleatorio eventoAtual;
 
-    public void iniciarBatalha(Gladiador jogador, Gladiador oponente){
+    public void iniciarBatalha(Gladiador jogador, Oponente oponente){
         
         System.out.println("╔════════════════════════════════╗");
         System.out.println("║   QUE OS JOGOS COMECEM!        ║");

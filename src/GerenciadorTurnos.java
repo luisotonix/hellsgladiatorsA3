@@ -10,15 +10,14 @@ public class GerenciadorTurnos {
         return turnoAtual;
     }
     
-      public Gladiador determinarOrdem(Gladiador jogador, Gladiador oponente) {
+    public void determinarOrdem(Gladiador jogador, Gladiador oponente) {
         // Quem tem maior velocidade de ataque vai primeiro
         if (jogador.getVelocidadeAtaque() > oponente.getVelocidadeAtaque()) {
-            return jogador;
-        } else if (oponente.getVelocidadeAtaque() > jogador.getVelocidadeAtaque()) {
-            return oponente;
+            jogador.setOrdemAtaque(1);
+            oponente.setOrdemAtaque(2);
         } else {
-            // Se empatar, sorteia
-            return Aleatorio.chance(50) ? jogador : oponente;
+            jogador.setOrdemAtaque(2);
+            oponente.setOrdemAtaque(1);
         }
     }
-}
+}  

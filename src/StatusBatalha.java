@@ -21,7 +21,7 @@ public class StatusBatalha {
     public void atualizarStatus() {
         // Reduz contadores
         if (turnosParalisia > 0) {
-            turnosParalisia--;
+            turnosParalisia = 0;
             if (turnosParalisia == 0) {
                 paralizado = false;
             }

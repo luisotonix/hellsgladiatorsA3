@@ -48,7 +48,7 @@ public class Arma{
             case "rede_adaga", "rede e adaga" -> {
                 this.forcaBase = 3;
                 this.habilidadeEspecial = "Paralisar";
-                this.chanceHabilidade = 50;
+                this.chanceHabilidade = 40;
                 this.ignoraArmadura = false;
             }
             case "arco", "arco e flecha" -> {

@@ -31,7 +31,7 @@ public class AnimacaoCombate {
     public static void mostrarVitoria() {
         System.out.println("\\n");
         System.out.println("  ╔═══════════════════════════╗");
-        System.out.println("  ║   🏆 VOCÊ VENCEU! 🏆      ║");
+        System.out.println("  ║   🏆 VOCÊ VENCEU! 🏆     ║");
         System.out.println("  ╚═══════════════════════════╝");
         System.out.println();
         System.out.println("  A plateia está EUFÓRICA! 🎉");
@@ -40,7 +40,7 @@ public class AnimacaoCombate {
     public static void mostrarDerrota() {
         System.out.println("\\n");
         System.out.println("  ╔═══════════════════════════╗");
-        System.out.println("  ║   💀 VOCÊ PERDEU! 💀      ║");
+        System.out.println("  ║   💀 VOCÊ PERDEU! 💀     ║");
         System.out.println("  ╚═══════════════════════════╝");
         System.out.println();
         System.out.println("  A plateia está decepcionada... 😔");

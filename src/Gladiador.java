@@ -8,7 +8,9 @@ public class Gladiador {
     protected int reducaoDano;
     protected int chanceCritico;
     protected int velocidadeAtaque;
+    protected int ordemAtaque;
     protected StatusBatalha status;
+    protected int escolhaAcao;
 
     public Gladiador() {
         
@@ -79,16 +81,26 @@ public void receberDano(int dano) {
     public StatusBatalha getStatus() { 
         return status; 
     }
-
     public boolean temArmadura() {
         return (armadura > 0);
     }
-
     public int getVelocidadeAtaque() {
         return velocidadeAtaque;
     }
-
    public int quebrarArmadura () {
-    return (armadura = 0);
-   }
+        return (armadura = 0);
+    }
+    public void setOrdemAtaque(int ordem) {
+        this.ordemAtaque = ordem;
+    }
+    public int getOrdemAtaque() {
+        return ordemAtaque;
+    }
+    public void setAcao(int escolha) {
+        this.escolhaAcao = escolha;
+    }
+    public int getAcao() {
+        return escolhaAcao;
+    }
+
 }
