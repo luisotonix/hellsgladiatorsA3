@@ -28,41 +28,6 @@ Hell's Gladiators é um jogo baseado em turnos desenvolvido em Java onde você e
 
 ---
 
-## 🚀 Como Jogar
-
-### **Pré-requisitos**
-- Java JDK 8 ou superior instalado
-- Terminal/Prompt de Comando
-
-### **Instalação e Execução**
-
-1. **Clone ou baixe o projeto:**
-```bash
-git clone https://github.com/seu-usuario/hells-gladiators.git
-cd HellsGladiators
-```
-
-2. **Compile todos os arquivos:**
-```bash
-javac *.java
-```
-
-3. **Execute o jogo:**
-```bash
-java Main
-```
-
-4. **Para limpar arquivos compilados:**
-```bash
-# Windows
-del *.class
-
-# Linux/Mac
-rm *.class
-```
-
----
-
 ## 🎯 Como Jogar
 
 ### **Menu Principal**
