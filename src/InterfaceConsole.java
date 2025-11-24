@@ -17,8 +17,7 @@ public class InterfaceConsole {
         System.out.println("Seu objetivo é sobreviver dentro do coliseu e conquistar vitórias.");
         System.out.println("1 - Iniciar Jogo");
         System.out.println("2 - Ver Regras");
-        System.out.println("3 - Ver Estatísticas");
-        System.out.println("4 - Sair");
+        System.out.println("3 - Sair");
         System.out.println("Digite o número correspondente à opção que deseja escolher para começar:");
     }
 
@@ -135,10 +134,7 @@ public class InterfaceConsole {
         System.out.println("Cada classe tem seu HP máximo, arma e habilidade especial. Depois de escolher sua classe, seu gladiador será jogado no Coliseu para lutar contra outros gladiadores e sobreviver eventos especiais...\nCada turno você poderá escolher entre certas ações e o último gladiador com HP é o vencedor!");
         Thread.sleep(1000);
     }
-public void mostrarEstatisticas() {
-    GerenciadorRanking ranking = new GerenciadorRanking();
-    ranking.exibirTop10();
-}
 
 
 }
+
