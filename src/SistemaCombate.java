@@ -41,12 +41,30 @@ public class SistemaCombate {
         // Seu turno
         if (!jogador.getStatus().isParalizado()) {
             System.out.println("\n1 - Atacar\n2 - Defender");
-            Scanner scanner = new Scanner(System.in);
-            jogador.setAcao(scanner.nextInt());
+            while (voltar) {
+                Scanner scanner = new Scanner(System.in);
+                int escolha = scanner.nextInt();
+                switch (escolha) {
+                    case 1:
+                        jogador.setAcao(escolha);
+                        voltar = false;
+                        break;
+                    case 2:
+                        jogador.setAcao(escolha);
+                        voltar = false;
+                        break;
+                    default:
+                        System.out.println("Escolha inválida! Tente novamente: ");
+                }
+            }
+        } else {
+            jogador.setAcao(0);
         }
 
         if (!oponente.getStatus().isParalizado()) {
             oponente.setAcao(oponente.decidirAcao());
+        } else {
+            oponente.setAcao(0);
         }
         
         // Determina ordem de ataque
@@ -147,4 +165,5 @@ public class SistemaCombate {
             return oponente;
         }
     }
+
 }
