@@ -122,8 +122,7 @@ public class InterfaceConsole {
                     mostrarMenuPrincipal();
                     break;
                 default:
-                    repetirPartida = false;
-                    break;
+                    System.out.println("Escolha inválida!");
             }
         }
 
@@ -137,4 +136,5 @@ public class InterfaceConsole {
 
 
 }
+
 
