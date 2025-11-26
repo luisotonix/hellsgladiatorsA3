@@ -19,51 +19,51 @@ public class Arma{
 
     public Arma(String nome){
         this.nome = nome;
-        configurarArma();
+        configurarArma(nome);
 
     }
 
-    private void configurarArma(){
-        switch(nome.toLowerCase()){
+    private void configurarArma(String nome){
+        String key = nome == null ? "" : nome.toLowerCase().trim();
+        switch(key){
 
-            case espada -> {
-                this.forcaBase = 3;
+            case "espada" -> {
+                this.forcaBase = 4;
                 this.habilidadeEspecial = "Duplo Ataque";
                 this.chanceHabilidade = 20;
                 this.ignoraArmadura = false;
             }
-        
-        case lanca -> {
-            this.forcaBase = 4;
-            this.habilidadeEspecial = "Desarmar";
-            this.chanceHabilidade = 20;
-            this.ignoraArmadura = false;
+            case "lanca", "lança" -> {
+                this.forcaBase = 4;
+                this.habilidadeEspecial = "Desarmar";
+                this.chanceHabilidade = 20;
+                this.ignoraArmadura = false;
             }
-
-        case machado -> {
-            this.forcaBase = 5;
-            this.habilidadeEspecial = "Quebrar armadura";
-            this.chanceHabilidade = 100; // SEMPRE ATIVO APÓS 2 ATAQUES
-            this.ignoraArmadura = false;
-            } 
-
-        case rede_adaga -> {
-            this.forcaBase = 2;
-            this.habilidadeEspecial = "Paralisar";
-            this.chanceHabilidade = 100;
-            this.ignoraArmadura = false;
+            case "machado" -> {
+                this.forcaBase = 5;
+                this.habilidadeEspecial = "Quebrar Armadura";
+                this.chanceHabilidade = 100;
+                this.ignoraArmadura = false;
             }
-
-        case arco -> {
-            this.forcaBase = 2;
-            this.habilidadeEspecial = "Ignora Armadura";
-            this.chanceHabilidade = 100;
-            this.ignoraArmadura = true;
-            }    
-
-        default -> {
-            }  
-            }  
+            case "rede_adaga", "rede e adaga" -> {
+                this.forcaBase = 3;
+                this.habilidadeEspecial = "Paralisar";
+                this.chanceHabilidade = 40;
+                this.ignoraArmadura = false;
+            }
+            case "arco", "arco e flecha" -> {
+                this.forcaBase = 2;
+                this.habilidadeEspecial = null;
+                this.chanceHabilidade = 100;
+                this.ignoraArmadura = true;
+            }
+            default -> {
+                this.forcaBase = 1;
+                this.habilidadeEspecial = null;
+                this.chanceHabilidade = 0;
+                this.ignoraArmadura = false;
+            }
+        }
     }
     // GETTERS
 
@@ -86,5 +86,6 @@ public class Arma{
     public boolean getIgnoraArmadura(){
         return ignoraArmadura;
     }
-} 
+}
+
 

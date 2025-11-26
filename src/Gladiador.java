@@ -8,7 +8,9 @@ public class Gladiador {
     protected int reducaoDano;
     protected int chanceCritico;
     protected int velocidadeAtaque;
+    protected int ordemAtaque;
     protected StatusBatalha status;
+    protected int escolhaAcao;
 
     public Gladiador() {
         
@@ -17,7 +19,7 @@ public class Gladiador {
     public void setGladiador(String nome, String tipoClasse, String nomeArma) {
         this.nome = nome;
         this.tipoClasse = tipoClasse;
-        arma.configurarArma(nomeArma);
+        this.arma = new Arma(nomeArma);
         this.status = new StatusBatalha();
         
         ConfiguracaoClasse config = new ConfiguracaoClasse();
@@ -33,18 +35,21 @@ public class Gladiador {
         velocidadeAtaque = config[4];
     }
     
-    public void receberDano(int dano) {
-        int danoFinal = dano - reducaoDano;
-        if (danoFinal < 0) danoFinal = 0;
-        
-        hp -= danoFinal;
-        if (hp < 0) hp = 0;
-    }
+public void receberDano(int dano) {
+    // Armadura já foi aplicada em CalculadorDano.calcularDano()
+    hp -= dano;  // 👈 Apenas subtrai o dano já calculado
+    if (hp < 0) hp = 0;
+}
     
     public boolean estaVivo() {
         return hp > 0;
     }
     
+    public void restaurarParaNovaBatalha() {
+        this.hp = this.hpMaximo;
+        this.status = new StatusBatalha();
+    }
+
     // Getters e Setters
     public String getNome() { 
         return nome; 
@@ -76,8 +81,26 @@ public class Gladiador {
     public StatusBatalha getStatus() { 
         return status; 
     }
-
+    public boolean temArmadura() {
+        return (armadura > 0);
+    }
     public int getVelocidadeAtaque() {
         return velocidadeAtaque;
-    } 
+    }
+   public int quebrarArmadura () {
+        return (armadura = 0);
+    }
+    public void setOrdemAtaque(int ordem) {
+        this.ordemAtaque = ordem;
+    }
+    public int getOrdemAtaque() {
+        return ordemAtaque;
+    }
+    public void setAcao(int escolha) {
+        this.escolhaAcao = escolha;
+    }
+    public int getAcao() {
+        return escolhaAcao;
+    }
+
 }
